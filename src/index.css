@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+:root {
+  --text-title: clamp(1.5rem, 2.7vw, 2.25rem);
+  --text-subtitle: clamp(1.3rem, 2.2vw, 1.9rem);
+}
