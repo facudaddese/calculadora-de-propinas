@@ -10,3 +10,7 @@ export interface FetchShape {
     count: number;
   };
 }
+
+export interface OrderItem extends FetchShape {
+  quantity: number;
+}
