@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import type { FetchShape } from "../types/Fetch";
+import type { MenuItem } from "../types/Products";
 
 export const useFetch = () => {
-  const [products, setProducts] = useState<FetchShape[]>([]);
+  const [products, setProducts] = useState<MenuItem[]>([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -16,7 +16,7 @@ export const useFetch = () => {
           signal: controller.signal,
         });
         if (!res.ok) throw new Error("No products found");
-        const data: FetchShape[] = await res.json();
+        const data: MenuItem[] = await res.json();
         setProducts(data);
       } catch (error) {
         if (error instanceof Error) {

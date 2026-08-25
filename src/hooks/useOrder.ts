@@ -1,10 +1,10 @@
 import { useState } from "react";
-import type { FetchShape, OrderItem } from "../types/Fetch";
+import type { MenuItem, OrderItem } from "../types/Products";
 
 export const useOrder = () => {
   const [order, setOrder] = useState<OrderItem[]>([]);
 
-  const addProducts = (product: FetchShape) => {
+  const addProducts = (product: MenuItem) => {
     setOrder((prev) => {
       if (prev.find((item) => item.id === product.id)) {
         return prev.map((el) =>

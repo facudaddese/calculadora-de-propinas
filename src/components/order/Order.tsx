@@ -1,7 +1,12 @@
-const Order = () => {
+interface OrderProps {
+  title: string;
+  price: number;
+}
+const Order = ({ title, price }: OrderProps) => {
   return (
     <div>
-      <h2 className="text-(length:--text-subtitle)">Orden</h2>;
+      {title}
+      {price}
     </div>
   );
 };

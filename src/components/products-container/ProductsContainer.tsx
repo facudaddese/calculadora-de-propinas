@@ -1,11 +1,11 @@
 import { useFetch } from "../../hooks/useFetch";
-import type { FetchShape } from "../../types/Fetch";
+import type { MenuItem } from "../../types/Products";
 import Products from "../products/Products";
 
 const ProductsContainer = ({
   addProducts,
 }: {
-  addProducts: (product: FetchShape) => void;
+  addProducts: (product: MenuItem) => void;
 }) => {
   const { products, error, loading } = useFetch();
 

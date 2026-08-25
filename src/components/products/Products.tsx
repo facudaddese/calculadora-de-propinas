@@ -1,4 +1,7 @@
-import type { ProductsProps } from "../../types/Products";
+interface ProductsProps {
+  title: string;
+  price: number;
+}
 
 const Products = ({ title, price }: ProductsProps) => {
   return (
