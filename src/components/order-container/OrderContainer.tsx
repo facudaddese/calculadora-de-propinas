@@ -22,7 +22,7 @@ const OrderContainer = ({ order, deleteProducts }: OrderContainerProps) => {
           ))}
         </div>
       </div>
-      {order.length != 0 && <Tip handleTip={handleTip} />}
+      {order.length != 0 && <Tip handleTip={handleTip} tipState={tipState} />}
       {order.length !== 0 && <OrderTotals order={order} tipState={tipState} />}
     </section>
   );

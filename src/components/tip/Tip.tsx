@@ -23,9 +23,10 @@ const tip = [
 
 interface TipProps {
   handleTip: (tip: number) => void;
+  tipState: number | null;
 }
 
-const Tip = ({ handleTip }: TipProps) => {
+const Tip = ({ handleTip, tipState }: TipProps) => {
   return (
     <div className="my-5">
       <h2 className="font-bold text-2xl pb-3">Propina</h2>
@@ -36,7 +37,8 @@ const Tip = ({ handleTip }: TipProps) => {
             id={item.id}
             name="tip"
             value={item.value}
-            onClick={() => handleTip(item.value)}
+            checked={tipState === item.value}
+            onChange={() => handleTip(item.value)}
           />
           <label htmlFor={item.id} className="pl-2">
             {item.label}
