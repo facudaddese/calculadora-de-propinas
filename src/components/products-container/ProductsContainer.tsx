@@ -9,24 +9,23 @@ const ProductsContainer = ({
 }) => {
   const { products, error, loading } = useFetch();
 
-  if (loading) return <span>Cargando productos</span>;
+  if (loading) return <span>Cargando productos...</span>;
+  if (error) return <span>{error}</span>;
 
   return (
-    <section className="space-y-3">
-      <h2 className="text-(length:--text-subtitle)">Menú</h2>
-      {!error ? (
-        products.map((item) => (
+    <section className="overflow-auto max-h-170 scrollbar-thin">
+      <h2 className="text-(length:--text-subtitle) font-bold">Menú</h2>
+      <div className="overflow-hidden space-y-3 ">
+        {products.map((item) => (
           <button
             key={item.id}
-            className="border-2 cursor-pointer w-150 hover:bg-gray-100"
+            className="border border-blue-100 cursor-pointer w-150 hover:bg-gray-100"
             onClick={() => addProducts(item)}
           >
             <Products title={item.title} price={item.price} />
           </button>
-        ))
-      ) : (
-        <span>{error}</span>
-      )}
+        ))}
+      </div>
     </section>
   );
 };

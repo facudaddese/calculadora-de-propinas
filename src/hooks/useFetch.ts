@@ -29,6 +29,7 @@ export const useFetch = () => {
     };
 
     getProducts();
+
     return () => controller.abort();
   }, []);
 

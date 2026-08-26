@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <header className="text-center">
-      <h1 className="text-(length:--text-title) font-bold py-10">Calculadora de propinas</h1>
+      <h1 className="text-(length:--text-title) font-extrabold py-10">Calculadora de propinas</h1>
     </header>
   );
 };

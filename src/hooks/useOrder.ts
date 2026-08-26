@@ -15,5 +15,9 @@ export const useOrder = () => {
     });
   };
 
-  return { order, addProducts };
+  const deleteProducts = (id: MenuItem["id"]) => {
+    setOrder((prev) => prev.filter((el) => el.id !== id));
+  };
+
+  return { order, addProducts, deleteProducts };
 };
