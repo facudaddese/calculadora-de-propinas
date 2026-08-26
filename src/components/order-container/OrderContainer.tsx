@@ -13,8 +13,8 @@ const OrderContainer = ({ order, deleteProducts }: OrderContainerProps) => {
   const { tipState, handleTip } = useTip();
 
   return (
-    <section>
-      <h2 className="text-(length:--text-subtitle) font-bold">Orden</h2>
+    <section className="mt-5 pl-7">
+      <h2 className="text-(length:--text-subtitle) font-bold pb-3">Orden</h2>
       <div className="space-y-3 overflow-y-auto scrollbar-thin pr-7">
         <div className="max-h-83 space-y-3">
           {order.map((item) => (

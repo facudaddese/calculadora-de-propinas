@@ -34,7 +34,7 @@ const OrderTotals = ({ order, tipState }: OrderTotalsProps) => {
 
   return (
     <div>
-      <h2 className="font-bold text-2xl mb-3">Totales y propina</h2>
+      <h2 className="font-bold text-2xl pb-3">Totales y propina</h2>
       <p className="font-semibold py-1">Subtotal a pagar: ${subTotal}</p>
       <p className="font-semibold py-1">Propina: ${calculateTip}</p>
       <p className="font-bold text-[20px]">Total a pagar: ${total}</p>
