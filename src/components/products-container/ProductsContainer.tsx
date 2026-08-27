@@ -1,14 +1,19 @@
-import { useFetch } from "../../hooks/useFetch";
 import type { MenuItem } from "../../types/Products";
 import Products from "../products/Products";
 
-const ProductsContainer = ({
-  addProducts,
-}: {
+interface ProductsContainerProps {
+  products: MenuItem[];
+  loading: boolean;
+  error: string;
   addProducts: (product: MenuItem) => void;
-}) => {
-  const { products, error, loading } = useFetch();
+}
 
+const ProductsContainer = ({
+  products,
+  loading,
+  error,
+  addProducts,
+}: ProductsContainerProps) => {
   if (loading) return <span>Cargando productos...</span>;
   if (error) return <span>{error}</span>;
 

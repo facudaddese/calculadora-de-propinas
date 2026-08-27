@@ -19,20 +19,26 @@ const OrderContainer = ({
 
   return (
     <section className="mt-5 px-7">
-      <h2 className="text-(length:--text-subtitle) font-bold pb-3">Orden</h2>
-      <div className="space-y-3 overflow-y-auto scrollbar-thin pr-7">
-        <div className="max-h-63 space-y-3">
-          {order.map((item) => (
-            <Order key={item.id} item={item} deleteProducts={deleteProducts} />
-          ))}
-        </div>
-      </div>
-      {order.length != 0 ? (
+      {order.length != 0 && (
         <>
+          <h2 className="text-(length:--text-subtitle) font-bold pb-3">
+            Orden
+          </h2>
+          <div className="space-y-3 overflow-y-auto scrollbar-thin">
+            <div className="max-h-63 space-y-3">
+              {order.map((item) => (
+                <Order
+                  key={item.id}
+                  item={item}
+                  deleteProducts={deleteProducts}
+                />
+              ))}
+            </div>
+          </div>
           <Tip handleTip={handleTip} tipState={tipState} />
           <OrderTotals order={order} tipState={tipState} />
           <button
-            className="w-full p-2 mt-7 bg-black text-white cursor-pointer border hover:bg-white hover:text-black"
+            className="w-full p-2 mt-7 uppercase font-semibold bg-black text-white cursor-pointer border hover:bg-white hover:text-black"
             onClick={() => {
               setOrder([]);
               alert("Orden guardada con éxito!");
@@ -41,9 +47,7 @@ const OrderContainer = ({
             Guardar y vaciar orden
           </button>
         </>
-      ):
-        <h3 className="flex items-center justify-center h-[50%] text-2xl font-bold text-gray-600">No existen pedidos</h3>
-      }
+      )}
     </section>
   );
 };

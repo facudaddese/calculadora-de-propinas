@@ -29,7 +29,7 @@ interface TipProps {
 const Tip = ({ handleTip, tipState }: TipProps) => {
   return (
     <div className="my-5">
-      <h2 className="font-bold text-2xl pb-3">Propina</h2>
+      <h2 className="font-bold text-2xl pb-3">Incluir propina</h2>
       {tip.map((item) => (
         <div key={item.id}>
           <input

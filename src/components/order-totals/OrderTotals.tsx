@@ -11,7 +11,10 @@ const OrderTotals = ({ order, tipState }: OrderTotalsProps) => {
     () =>
       order
         .reduce((acum, item) => acum + item.price * item.quantity, 0)
-        .toLocaleString("es-AR", { maximumFractionDigits: 2 }),
+        .toLocaleString("es-AR", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        }),
     [order],
   );
 
@@ -19,7 +22,10 @@ const OrderTotals = ({ order, tipState }: OrderTotalsProps) => {
     () =>
       (
         parseFloat(subTotal.replace(/\./g, "").replace(",", ".")) * tipState
-      ).toLocaleString("es-AR", { maximumFractionDigits: 2 }),
+      ).toLocaleString("es-AR", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      }),
     [subTotal, tipState],
   );
 
@@ -28,16 +34,19 @@ const OrderTotals = ({ order, tipState }: OrderTotalsProps) => {
       (
         parseFloat(subTotal.replace(/\./g, "").replace(",", ".")) +
         parseFloat(calculateTip.replace(/\./g, "").replace(",", "."))
-      ).toLocaleString("es-AR", { maximumFractionDigits: 2 }),
+      ).toLocaleString("es-AR", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      }),
     [subTotal, calculateTip],
   );
 
   return (
     <div>
-      <h2 className="font-bold text-2xl pb-3">Totales y propina</h2>
-      <p className="py-1">Subtotal a pagar: ${subTotal}</p>
+      <h2 className="font-bold text-2xl pb-3">Resumen</h2>
+      <p className="py-1">Subtotal: ${subTotal}</p>
       <p className=" py-1">Propina: ${calculateTip}</p>
-      <p className="font-bold text-[20px]">Total a pagar: ${total}</p>
+      <p className="font-bold text-[20px]">Total: ${total}</p>
     </div>
   );
 };
