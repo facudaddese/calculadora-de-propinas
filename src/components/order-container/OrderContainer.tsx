@@ -6,24 +6,44 @@ import Tip from "../tip/Tip";
 
 interface OrderContainerProps {
   order: OrderItem[];
+  setOrder: React.Dispatch<React.SetStateAction<OrderItem[]>>;
   deleteProducts: (id: MenuItem["id"]) => void;
 }
 
-const OrderContainer = ({ order, deleteProducts }: OrderContainerProps) => {
+const OrderContainer = ({
+  order,
+  setOrder,
+  deleteProducts,
+}: OrderContainerProps) => {
   const { tipState, handleTip } = useTip();
 
   return (
-    <section className="mt-5 pl-7">
+    <section className="mt-5 px-7">
       <h2 className="text-(length:--text-subtitle) font-bold pb-3">Orden</h2>
       <div className="space-y-3 overflow-y-auto scrollbar-thin pr-7">
-        <div className="max-h-83 space-y-3">
+        <div className="max-h-63 space-y-3">
           {order.map((item) => (
             <Order key={item.id} item={item} deleteProducts={deleteProducts} />
           ))}
         </div>
       </div>
-      {order.length != 0 && <Tip handleTip={handleTip} tipState={tipState} />}
-      {order.length !== 0 && <OrderTotals order={order} tipState={tipState} />}
+      {order.length != 0 ? (
+        <>
+          <Tip handleTip={handleTip} tipState={tipState} />
+          <OrderTotals order={order} tipState={tipState} />
+          <button
+            className="w-full p-2 mt-7 bg-black text-white cursor-pointer border hover:bg-white hover:text-black"
+            onClick={() => {
+              setOrder([]);
+              alert("Orden guardada con éxito!");
+            }}
+          >
+            Guardar y vaciar orden
+          </button>
+        </>
+      ):
+        <h3 className="flex items-center justify-center h-[50%] text-2xl font-bold text-gray-600">No existen pedidos</h3>
+      }
     </section>
   );
 };

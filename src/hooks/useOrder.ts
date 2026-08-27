@@ -19,5 +19,5 @@ export const useOrder = () => {
     setOrder((prev) => prev.filter((el) => el.id !== id));
   };
 
-  return { order, addProducts, deleteProducts };
+  return { order, setOrder, addProducts, deleteProducts };
 };
