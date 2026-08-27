@@ -43,10 +43,10 @@ const OrderTotals = ({ order, tipState }: OrderTotalsProps) => {
 
   return (
     <div>
-      <h2 className="font-bold text-2xl pb-3">Resumen</h2>
+      <h2 className="font-bold text-2xl pb-3 text-sky-800">Resumen</h2>
       <p className="py-1">Subtotal: ${subTotal}</p>
       <p className=" py-1">Propina: ${calculateTip}</p>
-      <p className="font-bold text-[20px]">Total: ${total}</p>
+      <p className="font-bold text-[25px]">Total: ${total}</p>
     </div>
   );
 };

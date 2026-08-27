@@ -21,7 +21,7 @@ const OrderContainer = ({
     <section className="mt-5 px-7">
       {order.length != 0 && (
         <>
-          <h2 className="text-(length:--text-subtitle) font-bold pb-3">
+          <h2 className="text-(length:--text-subtitle) font-bold pb-3 text-sky-800">
             Orden
           </h2>
           <div className="space-y-3 overflow-y-auto scrollbar-thin">
@@ -38,7 +38,7 @@ const OrderContainer = ({
           <Tip handleTip={handleTip} tipState={tipState} />
           <OrderTotals order={order} tipState={tipState} />
           <button
-            className="w-full p-2 mt-7 uppercase font-semibold bg-black text-white cursor-pointer border hover:bg-white hover:text-black"
+            className="w-full p-2 mt-7 uppercase font-bold bg-black text-white cursor-pointer border hover:bg-white hover:text-black"
             onClick={() => {
               setOrder([]);
               alert("Orden guardada con éxito!");

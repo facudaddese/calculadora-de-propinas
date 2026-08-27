@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <header className="text-center">
-      <h1 className="text-(length:--text-title) font-extrabold py-7 underline">Selecciona tú pedido</h1>
+      <h1 className="text-(length:--text-title) font-bold py-7 text-sky-900">Selecciona tú pedido</h1>
     </header>
   );
 };
