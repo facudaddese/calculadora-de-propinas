@@ -5,5 +5,5 @@ export const useTip = () => {
 
   const handleTip = (tip: number) => setTipState(tip);
 
-  return { tipState, handleTip };
+  return { tipState, handleTip, setTipState };
 };

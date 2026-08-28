@@ -22,7 +22,7 @@ const ProductsContainer = ({
       <h2 className="text-(length:--text-subtitle) font-bold pb-3 text-sky-800">
         Menú
       </h2>
-      <div className="overflow-hidden space-y-3">
+      <div className="space-y-3">
         {products.map((item) => (
           <button
             key={item.id}

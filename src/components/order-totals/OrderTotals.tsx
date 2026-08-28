@@ -4,9 +4,10 @@ import type { OrderItem } from "../../types/Products";
 interface OrderTotalsProps {
   order: OrderItem[];
   tipState: number;
+  setTipState: (value: number) => void;
 }
 
-const OrderTotals = ({ order, tipState }: OrderTotalsProps) => {
+const OrderTotals = ({ order, tipState, setTipState }: OrderTotalsProps) => {
   const subTotal = useMemo(
     () =>
       order
@@ -45,7 +46,16 @@ const OrderTotals = ({ order, tipState }: OrderTotalsProps) => {
     <div>
       <h2 className="font-bold text-2xl pb-3 text-sky-800">Resumen</h2>
       <p className="py-1">Subtotal: ${subTotal}</p>
-      <p className=" py-1">Propina: ${calculateTip}</p>
+      <p className="inline-block py-1">Propina: ${calculateTip}</p>
+      {tipState !== 0 && (
+        <span
+          className="text-[12px] p-1 ml-3 font-semibold text-red-400 cursor-pointer border rounded-2xl"
+          onClick={() => setTipState(0)}
+        >
+          {" "}
+          Eliminar propina
+        </span>
+      )}
       <p className="font-bold text-[25px]">Total: ${total}</p>
     </div>
   );

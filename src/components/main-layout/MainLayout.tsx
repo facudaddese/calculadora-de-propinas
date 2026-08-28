@@ -8,7 +8,7 @@ const MainLayout = () => {
   const { products, error, loading } = useFetch();
 
   return (
-    <main className="max-w-7xl py-10 gap-3 mx-auto grid md:grid-cols-2">
+    <main className="max-w-7xl py-6 gap-3 mx-auto grid md:grid-cols-2">
       <ProductsContainer
         products={products}
         error={error}
