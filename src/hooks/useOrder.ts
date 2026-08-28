@@ -1,23 +1,19 @@
-import { useState } from "react";
-import type { MenuItem, OrderItem } from "../types/Products";
+import { useReducer } from "react";
+import type { MenuItem } from "../types/Products";
+import { reducer } from "../reducers/useReducer";
 
 export const useOrder = () => {
-  const [order, setOrder] = useState<OrderItem[]>([]);
+  const [order, dispatch] = useReducer(reducer, []);
 
   const addProducts = (product: MenuItem) => {
-    setOrder((prev) => {
-      if (prev.find((item) => item.id === product.id)) {
-        return prev.map((el) =>
-          el.id === product.id ? { ...el, quantity: el.quantity + 1 } : el,
-        );
-      }
-      return [...prev, { ...product, quantity: 1 }];
-    });
+    dispatch({ type: "addProducts", payload: { product } });
   };
 
   const deleteProducts = (id: MenuItem["id"]) => {
-    setOrder((prev) => prev.filter((el) => el.id !== id));
+    dispatch({ type: "deleteProducts", payload: { id } });
   };
 
-  return { order, setOrder, addProducts, deleteProducts };
+  const emptyOrder = () => dispatch({ type: "emptyOrder" });
+
+  return { order, addProducts, deleteProducts, emptyOrder };
 };

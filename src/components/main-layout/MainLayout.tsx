@@ -4,7 +4,7 @@ import OrderContainer from "../order-container/OrderContainer";
 import ProductsContainer from "../products-container/ProductsContainer";
 
 const MainLayout = () => {
-  const { order, setOrder, addProducts, deleteProducts } = useOrder();
+  const { order, addProducts, deleteProducts, emptyOrder } = useOrder();
   const { products, error, loading } = useFetch();
 
   return (
@@ -17,8 +17,8 @@ const MainLayout = () => {
       />
       <OrderContainer
         order={order}
-        setOrder={setOrder}
         deleteProducts={deleteProducts}
+        emptyOrder={emptyOrder}
       />
     </main>
   );

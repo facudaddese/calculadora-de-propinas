@@ -6,13 +6,13 @@ import Tip from "../tip/Tip";
 
 interface OrderContainerProps {
   order: OrderItem[];
-  setOrder: React.Dispatch<React.SetStateAction<OrderItem[]>>;
+  emptyOrder: () => void;
   deleteProducts: (id: MenuItem["id"]) => void;
 }
 
 const OrderContainer = ({
   order,
-  setOrder,
+  emptyOrder,
   deleteProducts,
 }: OrderContainerProps) => {
   const { tipState, handleTip } = useTip();
@@ -40,7 +40,7 @@ const OrderContainer = ({
           <button
             className="w-full p-2 mt-7 uppercase font-bold bg-black text-white cursor-pointer border hover:bg-white hover:text-black"
             onClick={() => {
-              setOrder([]);
+              emptyOrder();
               alert("Orden guardada con éxito!");
             }}
           >
